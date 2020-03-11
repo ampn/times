@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>时光</title>
+	<meta name="keywords" content="时光" />
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url("digital-7_mono.ttf") format("truetype");
+		}
+	</style>
+	<link href="default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="jquery.js" ></script>
+	<script type="text/javascript" src="garden.js"></script>
+    <script type="text/javascript" src="functions.js"></script>
+</head>
+
+<body>
+<!--audio autoplay>
+	<source src="Wings Of Piano.mp3" type="audio/mp3" />
+</audio-->
+<div id="mainDiv">
+  <div id="content">
+			<div id="code">
+
+				<span class="space"><span class="comments">大家好</span></span><br />
+				
+				<span class="space"/><span class="comments">我叫马攀，是一个电子专业的在校大学生，我的专业是通信工程。</span><br />
+				<span class="space"/><span class="comments">我热爱电子制作，喜欢自己钻研各种电子作品，一旦有了自己的想法，便会开工动手把想法实现出来。这里是我的个人博客，欢迎大家经常光顾,一起交流电子技术，提高动手能力和发散思维能力</span><br />
+				<span class="space"/><span class="comments">2015.07.20</span><br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						我的博客已经建立了
+
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						温文尔雅 清新脱俗<br/>
+						<div class="signature">- 不思凡</div>
+					</div>
+				</div>
+			</div>
+	</div>
+    <div id="copyright">
+		<a target="_blank" style="text-decoration:none"  href="http://mapan.coding.me">不思凡</a>
+	</div>
+	</div>
+	</div>
+	</div>
+	
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2015, 07, 20-31);
+		together.setHours(0);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "提醒您：IE低版本用户请一边惭愧去吧^_^<br/>"+
+				"推荐使用浏览器 <a href='http://dl.pconline.com.cn/download/51614.html' target='_blank'>Chrome 14+</a>"+
+				"/<a href='http://download.microsoft.com/download/0/4/9/049A037E-B6B4-4303-90BE-BA6CAE979674/IE10-Windows6.1-x86-zh-cn.exe' target='_blank'>IE 9+</a>"+
+				"/<a href='http://download.firefox.com.cn/releases/partners/baidu/webins3.0/zh-CN/Firefox-setup.exe' target='_blank'>Firefox 7+</a>"+
+				"/Safari 4+<br/>请先升级您的浏览器，效果很炫哦~~"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				adjustWordsPosition();
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
